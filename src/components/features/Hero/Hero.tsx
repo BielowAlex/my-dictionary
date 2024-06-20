@@ -8,11 +8,11 @@ const Hero: FC = () => {
       <div className="absolute w-[712px] h-[531px] filter blur-[5px] top-[-40px] z-0">
         <Image src="/images/hero.jpg" alt="hero" layout="fill" />
       </div>
-      <div className="flex flex-col justify-center items-center gap-5 w-1/2 z-10 bg-[rgb(0,0,0,0.4)] h-full">
-        <h2 className="text-white font-bold text-4xl text-center">
+      <div className="flex flex-col justify-center items-center gap-5 w-full z-10 bg-[rgb(0,0,0,0.4)] h-full">
+        <h2 className="text-white font-bold w-1/2 text-4xl text-center">
           Welcome to "Dictionary App"!
         </h2>
-        <p className="text-white line text-center text-md z-10 leading-tight">
+        <p className="text-white line text-center w-1/2 text-md z-10 leading-tight">
           Create your own dictionaries, add new words, and learn languages with
           ease. Our service allows you to save the words you are learning and
           track your progress. The user-friendly interface and search function
