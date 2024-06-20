@@ -1,36 +1,98 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# e-chat-fe
+
+A Next.js project with TypeScript, Husky, Prettier, ESLint, Jest, and Sass setup.
+
+## Requirements
+
+- Node.js 22.X
 
 ## Getting Started
 
-First, run the development server:
+### Installation
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+1. Clone the repository:
+
+```sh
+git clone https://github.com/BielowAlex/nextjs-example.git
+cd nextjs-example
 ```
+Install dependencies:
+```sh
+npm install
+```
+Running the Development Server
+Start the development server:
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+```sh
+npm run dev
+```
+Open http://localhost:3000 with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Building for Production
+Build the project for production:
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+```sh
+npm run build
+```
+Start the production server:
 
-## Learn More
+```sh
+npm start
+```
+### Linting
+To lint the project using ESLint:
 
-To learn more about Next.js, take a look at the following resources:
+```sh
+npm run lint
+```
+### Formatting
+To format the project using Prettier:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```sh
+npm run prettier
+```
+ ### Testing
+To run the tests with Jest:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+```sh
+npm test
+```
+To run the tests in watch mode:
 
-## Deploy on Vercel
+```sh
+npm run test:watch
+```
+### Husky and lint-staged
+Husky is used to manage git hooks, and lint-staged is used to run linters on staged files.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Install Husky hooks:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+```sh
+npm run prepare
+```
+### Project Structure
+* pages/ - Next.js pages.
+* components/ - React components.
+* styles/ - Sass styles.
+
+### Custom Scripts
+* dev: Runs the Next.js development server.
+* build: Builds the application for production.
+* start: Starts the production server.
+* lint: Runs ESLint to lint the project.
+* prettier: Runs Prettier to format the project.
+* test: Runs Jest to test the project.
+* test:watch: Runs Jest in watch mode.
+* prepare: Sets up Husky hooks.
+## Configuration
+### TypeScript
+TypeScript is used for type checking. The configuration can be found in tsconfig.json.
+
+### ESLint
+ESLint is used for linting JavaScript and TypeScript files. The configuration can be found in .eslintrc.json.
+
+### Prettier
+Prettier is used for code formatting. The configuration can be found in .prettierrc.
+
+### Jest
+Jest is used for testing. The configuration can be found in jest.config.js.
