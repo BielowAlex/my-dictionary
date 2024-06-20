@@ -10,6 +10,7 @@ const Hero: FC = () => {
       </div>
       <div className="flex flex-col justify-center items-center gap-5 w-full z-10 bg-[rgb(0,0,0,0.4)] h-full">
         <h2 className="text-white font-bold w-1/2 text-4xl text-center">
+          {/* eslint-disable-next-line react/no-unescaped-entities */}
           Welcome to "Dictionary App"!
         </h2>
         <p className="text-white line text-center w-1/2 text-md z-10 leading-tight">
