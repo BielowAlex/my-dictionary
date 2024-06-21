@@ -7,7 +7,7 @@ import { Logo } from "@/components";
 
 const Header: FC = () => {
   return (
-    <header className="w-full h-[70px] flex justify-between items-center p-5 box-border fixed top-0 left-0 border-b-white border-b bg-[rgb(0,0,0,0.2)] z-[9999]">
+    <header className="w-full h-[70px] flex justify-between items-center p-5 box-border fixed top-0 left-0 border-b-white border-b bg-[rgb(0,0,0,0.7)] z-[9999]">
       <Logo />
       <nav className="flex items-center justify-center gap-5">
         <Link href="/" className="text-white text-base">

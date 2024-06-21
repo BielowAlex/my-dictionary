@@ -11,7 +11,7 @@ interface IProps {
 
 const Button: FC<IProps> = ({ children, href, handleClick, className }) => {
   const initClass =
-    "flex justify-center gap-2 items-center text-base p-[5px] text-white border border-white rounded-lg hover:white hover:text-black ease-linear duration-300";
+    "flex justify-center gap-2 items-center text-base p-[5px] px-[10px] text-white border border-white rounded-lg hover:bg-white hover:text-black ease-linear duration-300";
 
   if (href) {
     return (
