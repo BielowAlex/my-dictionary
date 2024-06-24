@@ -4,14 +4,14 @@ import { Button } from "@/components";
 
 const Hero: FC = () => {
   return (
-    <section className=" relative w-full h-[450px] overflow-hidden flex flex-col items-center justify-center mt-[100px]">
-      <div className="absolute w-[712px] h-[531px] filter blur-[5px] top-[-40px] z-0">
-        <Image src="/images/hero.jpg" alt="hero" layout="fill" />
+    <section className=" relative w-full h-[650px] overflow-hidden flex flex-col items-center justify-center">
+      <div className="absolute w-full h-[631px] filter blur-[2px] top-[-40px] z-0">
+        <Image src="/images/hero-1.jpg" alt="hero" layout="fill" className="object-cover" />
       </div>
       <div className="flex flex-col justify-center items-center gap-5 w-full z-10 bg-[rgb(0,0,0,0.4)] h-full">
         <h2 className="text-white font-bold w-1/2 text-4xl text-center">
           {/* eslint-disable-next-line react/no-unescaped-entities */}
-          Welcome to "Dictionary App"!
+          Welcome to "My-Dictionary" App!
         </h2>
         <p className="text-white line text-center w-1/2 text-md z-10 leading-tight">
           Create your own dictionaries, add new words, and learn languages with

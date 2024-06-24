@@ -5,7 +5,7 @@ import { Tutorial } from "@/components/features/Tutorial";
 export default function Home() {
   return (
     <MainLayout>
-      <main className="flex min-h-screen flex-col items-center justify-between p-5">
+      <main className="flex min-h-screen flex-col items-center justify-between container">
         <Hero />
         <Tutorial />
       </main>
