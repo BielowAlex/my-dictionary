@@ -4,6 +4,7 @@ import Image from "next/image";
 import { Button, Logo } from "@/components";
 import { faGoogle } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { signIn } from "next-auth/react";
 
 const AuthPage: FC = () => {
   const welcomeTranslations = [
@@ -42,7 +43,10 @@ const AuthPage: FC = () => {
           <h2 className="text-2xl w-full text-center font-semibold">
             Log in to your account
           </h2>
-          <Button className="flex font-bold text-3xl">
+          <Button
+            className="flex font-bold text-3xl"
+            handleClick={() => signIn("google", { callbackUrl: "/" })}
+          >
             <FontAwesomeIcon icon={faGoogle} className="w-[25px] h-[25px]" />{" "}
             <span className="text-2xl">Sign in</span>
           </Button>

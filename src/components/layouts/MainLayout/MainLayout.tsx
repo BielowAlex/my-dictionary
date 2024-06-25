@@ -1,5 +1,7 @@
+"use client";
 import React, { FC, ReactNode } from "react";
 import { Footer, Header } from "@/components";
+import { SessionProvider } from "next-auth/react";
 
 interface IProps {
   children: ReactNode;
@@ -8,9 +10,11 @@ interface IProps {
 const MainLayout: FC<IProps> = ({ children }) => {
   return (
     <>
-      <Header />
-      {children}
-      <Footer />
+      <SessionProvider>
+        <Header />
+        {children}
+        <Footer />
+      </SessionProvider>
     </>
   );
 };

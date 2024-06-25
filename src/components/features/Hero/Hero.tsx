@@ -1,12 +1,21 @@
+"use client";
 import React, { FC } from "react";
 import Image from "next/image";
 import { Button } from "@/components";
+import { useSession } from "next-auth/react";
 
 const Hero: FC = () => {
+  const { status } = useSession();
+
   return (
     <section className=" relative w-full h-[650px] overflow-hidden flex flex-col items-center justify-center">
       <div className="absolute w-full h-[631px] filter blur-[2px] top-[-40px] z-0">
-        <Image src="/images/hero-1.jpg" alt="hero" layout="fill" className="object-cover" />
+        <Image
+          src="/images/hero-1.jpg"
+          alt="hero"
+          layout="fill"
+          className="object-cover"
+        />
       </div>
       <div className="flex flex-col justify-center items-center gap-5 w-full z-10 bg-[rgb(0,0,0,0.4)] h-full">
         <h2 className="text-white font-bold w-1/2 text-4xl text-center">
@@ -21,12 +30,21 @@ const Hero: FC = () => {
           personal dictionaries today and improve your foreign language skills!
           Sign-up and try
         </p>
-        <Button
-          href="/auth"
-          className="duration-300 text-white hover:bg-white hover:text-inherit transition-linear text-base flex items-center gap-2 border border-white p-1 rounded-lg"
-        >
-          <span className="font-semibold text-xl">Sign-in</span>
-        </Button>
+        {status === "unauthenticated" ? (
+          <Button
+            href="/auth"
+            className="duration-300 text-white hover:bg-white hover:text-inherit transition-linear text-base flex items-center gap-2 border border-white p-1 rounded-lg"
+          >
+            <span className="font-semibold text-xl">Sign-in</span>
+          </Button>
+        ) : (
+          <Button
+            href="/profile"
+            className="duration-300 text-white hover:bg-white hover:text-inherit transition-linear text-base flex items-center gap-2 border border-white p-1 rounded-lg"
+          >
+            <span className="font-semibold text-xl">Get started</span>
+          </Button>
+        )}
       </div>
     </section>
   );
