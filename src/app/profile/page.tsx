@@ -3,26 +3,28 @@ import React, { FC, useEffect, useState } from "react";
 import { IUser } from "@/models";
 
 const ProfilePage: FC = () => {
-  const [users, setUsers] = useState<IUser[]>([]);
-
+  const [user, setUser] = useState<IUser>();
   const fetchUsers = async () => {
-    const res = await fetch("/api/users");
-    return res.json();
+    const res = await fetch("/api/users/me");
+    const data = res.json();
+
+    console.log(data);
+
+    return data;
   };
 
   useEffect(() => {
     fetchUsers()
-      .then((users) => {
-        console.log(users);
-        setUsers(users);
+      .then((user) => {
+        console.log(user);
+        setUser(user);
       })
       .catch((e) => console.log(e));
   }, []);
-
   return (
-    <div>
-      <h2>Profile</h2>
-    </div>
+    <main className="flex min-h-svh flex-col items-center justify-between container">
+      {user?.name}
+    </main>
   );
 };
 

@@ -24,11 +24,13 @@
     "*.js": "eslint --cache --fix"
   },
   "dependencies": {
+    "@auth/core": "^0.34.1",
     "@fortawesome/fontawesome-svg-core": "^6.5.2",
     "@fortawesome/free-brands-svg-icons": "^6.5.2",
     "@fortawesome/free-regular-svg-icons": "^6.5.2",
     "@fortawesome/free-solid-svg-icons": "^6.5.2",
     "@fortawesome/react-fontawesome": "^0.2.2",
+    "@reduxjs/toolkit": "^2.2.5",
     "autoprefixer": "^10.4.19",
     "classnames": "^2.5.1",
     "mongoose": "^8.4.3",
@@ -37,6 +39,7 @@
     "normalize.css": "^8.0.1",
     "react": "^18",
     "react-dom": "^18",
+    "react-redux": "^9.1.2",
     "sass": "^1.77.2"
   },
   "devDependencies": {

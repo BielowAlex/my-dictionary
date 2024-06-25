@@ -13,8 +13,9 @@ const Hero: FC = () => {
         <Image
           src="/images/hero-1.jpg"
           alt="hero"
-          layout="fill"
+          fill
           className="object-cover"
+          priority={true}
         />
       </div>
       <div className="flex flex-col justify-center items-center gap-5 w-full z-10 bg-[rgb(0,0,0,0.4)] h-full">

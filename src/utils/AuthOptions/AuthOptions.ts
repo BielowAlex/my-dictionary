@@ -1,7 +1,9 @@
 import GoogleProvider from "next-auth/providers/google";
-import { Account, NextAuthOptions, Session, User } from "next-auth";
+import { Account, NextAuthOptions, User } from "next-auth";
 import { JWT } from "next-auth/jwt";
 import { AdapterUser } from "next-auth/adapters";
+import { dbConnect } from "@/lib";
+import Users from "@/models/users/UserModel";
 
 export const authOptions: NextAuthOptions = {
   providers: [
@@ -15,7 +17,6 @@ export const authOptions: NextAuthOptions = {
     maxAge: 7 * 24 * 60 * 60 // 1 day
   },
   jwt: {
-    secret: process.env.JWT_SECRET,
     maxAge: 14 * 24 * 60 * 60 // 1 day
   },
   callbacks: {
@@ -34,12 +35,37 @@ export const authOptions: NextAuthOptions = {
       }
       return token;
     },
-    session: async ({ session, token }: { session: Session; token: JWT }) => {
+    session: async ({ session, token }) => {
       session.user = token.user as User; // Embed user info into the session object
       if (token?.accessToken) {
         (session as any).accessToken = token.accessToken; // Add the access token to the session
       }
       return session;
+    },
+    signIn: async ({ account, profile }) => {
+      await dbConnect(); // Забезпечуємо з'єднання з базою даних
+
+      if (account && account.provider === "google" && profile) {
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-expect-error
+        const { email, name, picture } = profile;
+
+        const existingUser = await Users.findOne({ email });
+
+        if (existingUser) {
+          return true;
+        } else {
+          const newUser = await Users.create({
+            email,
+            name,
+            avatar: picture,
+            googleId: profile.sub // Google ID з профілю
+          });
+
+          return !!newUser; // Повертаємо true, якщо користувач був створений
+        }
+      }
+      return true;
     }
   },
   pages: {

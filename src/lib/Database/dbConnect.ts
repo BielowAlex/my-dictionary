@@ -1,13 +1,26 @@
-import * as mongoose from "mongoose";
+import mongoose, { Connection } from "mongoose";
 
-const connection: { isConnected?: number } = {};
+// Declaring a variable to store the cached database connection
+let cachedConnection: Connection | null = null;
 
 export const dbConnect = async () => {
-  if (connection.isConnected) {
-    return;
+  // If a cached connection exists, return it
+  if (cachedConnection) {
+    console.log("Using cached db connection");
+    return cachedConnection;
   }
-
-  const db = await mongoose.connect(process.env.MONGODB_URI as string);
-
-  connection.isConnected = db.connections[0].readyState;
+  try {
+    // If no cached connection exists, establish a new connection to MongoDB
+    const cnx = await mongoose.connect(process.env.MONGODB_URI!);
+    // Cache the connection for future use
+    cachedConnection = cnx.connection;
+    // Log message indicating a new MongoDB connection is established
+    console.log("New mongodb connection established");
+    // Return the newly established connection
+    return cachedConnection;
+  } catch (error) {
+    // If an error occurs during connection, log the error and throw it
+    console.log(error);
+    throw error;
+  }
 };

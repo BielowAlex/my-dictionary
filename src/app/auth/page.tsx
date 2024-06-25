@@ -56,7 +56,8 @@ const AuthPage: FC = () => {
         <Image
           src="https://wallpapers.com/images/hd/dictionary-word-meaning-2wv5b98qrgkd7mbk.jpg"
           alt="back"
-          layout="fill"
+          fill
+          priority={true}
         />
       </div>
     </main>
