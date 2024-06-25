@@ -10,8 +10,8 @@ import { signOut, useSession } from "next-auth/react";
 const Header: FC = () => {
   const { status } = useSession();
   return (
-    <header className="w-full  fixed top-0 left-0 z-[9999]">
-      <div className="container w-full h-[70px] flex justify-between items-center p-5 box-border  border-b-white border-b bg-[rgb(0,0,0,0.7)]">
+    <header className="w-full  fixed top-0 left-0 z-[9999] border-b-white border-b bg-[rgb(0,0,0,0.7)]">
+      <div className="container w-full h-[70px] flex justify-between items-center p-5 box-border  ">
         <Logo />
         {status === "unauthenticated" ? (
           <Button
