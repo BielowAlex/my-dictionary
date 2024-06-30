@@ -6,8 +6,6 @@ import { getServerSession } from "next-auth";
 export async function GET() {
   const session = await getServerSession();
 
-  console.log(session);
-
   if (!session) {
     return NextResponse.json(
       { error: "Access denied. Please sign-in" },
@@ -16,7 +14,6 @@ export async function GET() {
   }
 
   await dbConnect();
-
   try {
     const currentUser = await Users.findOne({ email: session.user?.email });
 
