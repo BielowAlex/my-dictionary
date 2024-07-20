@@ -1,10 +1,11 @@
 import React, { FC } from "react";
-import { Profile } from "@/components";
+import { DictionaryList, Profile } from "@/components";
 
 const ProfilePage: FC = () => {
   return (
-    <main className="flex min-h-svh flex-col items-center justify-between container">
+    <main className="flex flex-col items-center justify-between container gap-[40px]">
       <Profile />
+      <DictionaryList />
     </main>
   );
 };
