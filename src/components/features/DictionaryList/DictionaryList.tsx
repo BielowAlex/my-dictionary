@@ -1,10 +1,10 @@
 "use client";
-import React, { FC, useState } from "react";
+import React, { FC } from "react";
 import { Button } from "@/components";
 import { DictionaryCard } from "@/components/features/DictionaryCard/DictionaryCard";
 
 const DictionaryList: FC = () => {
-  const [dictionaryList, setDictionaryList] = useState([]);
+  // const [dictionaryList, setDictionaryList] = useState([]);
   return (
     <section className="flex flex-col justify-center items-center gap-[40px] w-full container">
       <div className=" w-full flex justify-between items-center px-[25px]">
